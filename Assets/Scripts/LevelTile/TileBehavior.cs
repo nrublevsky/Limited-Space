@@ -9,16 +9,27 @@ public class TileBehavior : MonoBehaviour
 
     public List<TileBehavior> neighbors;
 
+    public CheckNeighbor[] checkers;
+
     void Start()
     {
         
+       /* FillInNeighborsList();*/
     }
 
-    
+
     void Update()
     {
-        
+
     }
 
+    public void FillInNeighborsList()
+    {
+        foreach (CheckNeighbor checker in checkers)
+        {
+            
+                neighbors.Add(checker.neighbor);
+        }
 
+    }
 }
