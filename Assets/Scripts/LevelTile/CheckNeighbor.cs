@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class CheckNeighbor : MonoBehaviour
 {
+    public TileBehavior self;
+
+    public TileBehavior neighbor;
+    
+    /*public BoxCollider2D neighbor;*/
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Tile"))
+        {
+            Debug.Log("Tile is present");
+            neighbor = collision.GetComponent<TileBehavior>();
+            self.neighbors.Add(neighbor);
+        }
     }
+
 }
