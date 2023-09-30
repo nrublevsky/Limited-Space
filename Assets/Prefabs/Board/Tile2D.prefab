@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   self: {fileID: 2489184419938616940}
   neighbor: {fileID: 0}
+  myIndex: 2
 --- !u!1 &2710621708797242516
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   self: {fileID: 2489184419938616940}
   neighbor: {fileID: 0}
+  myIndex: 0
 --- !u!1 &4292544793905612437
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +364,11 @@ MonoBehaviour:
   affected: 0
   presentFood: {fileID: 0}
   neighbors: []
+  checkers:
+  - {fileID: 2915456580033521414}
+  - {fileID: 8684249201751739896}
+  - {fileID: 6041273388743463199}
+  - {fileID: 5669306882354365694}
 --- !u!1 &4836782555426810473
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   self: {fileID: 2489184419938616940}
   neighbor: {fileID: 0}
+  myIndex: 1
 --- !u!1 &6150051373750499198
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,3 +554,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   self: {fileID: 2489184419938616940}
   neighbor: {fileID: 0}
+  myIndex: 3

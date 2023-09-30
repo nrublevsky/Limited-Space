@@ -7,7 +7,8 @@ public class CheckNeighbor : MonoBehaviour
     public TileBehavior self;
 
     public TileBehavior neighbor;
-    
+
+    public int myIndex;
     /*public BoxCollider2D neighbor;*/
 
     // Start is called before the first frame update
@@ -22,7 +23,7 @@ public class CheckNeighbor : MonoBehaviour
         {
             Debug.Log("Tile is present");
             neighbor = collision.GetComponent<TileBehavior>();
-            self.neighbors.Add(neighbor);
+            self.neighbors[myIndex] = neighbor;
         }
     }
 
