@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Yellow
   m_EditorClassIdentifier: 
   EffectName: 
-  neighborTimerAdder: 0
+  neighborTimerAdder: 5
   neighborTimerDecreaser: 0
   magic: 0
   PositiveCombination:

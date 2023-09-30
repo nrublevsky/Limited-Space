@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 7267032402621967690}
   - component: {fileID: 2820672387614308378}
   - component: {fileID: 2489184419938616940}
+  - component: {fileID: 6294156264859794043}
   m_Layer: 8
   m_Name: Tile2D
   m_TagString: Tile
@@ -361,14 +362,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5985c296766704fbace09829b039bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affected: 0
-  presentFood: {fileID: 0}
-  neighbors: []
   checkers:
   - {fileID: 5446223243514921894}
   - {fileID: 1379057848459417587}
   - {fileID: 8346027162477407445}
   - {fileID: 4537613210620099862}
+  neighbors: []
+  effect: {fileID: 0}
+  presentFood: {fileID: 0}
+  checkOccupancy: {fileID: 6294156264859794043}
+  affected: 0
+  occupied: 0
+--- !u!114 &6294156264859794043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4292544793905612437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9fb36f3860d89949a18662735da36cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzlePiece: {fileID: 0}
+  tileBehavior: {fileID: 0}
 --- !u!1 &4836782555426810473
 GameObject:
   m_ObjectHideFlags: 0
