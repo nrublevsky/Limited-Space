@@ -448,6 +448,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2820672387614308378, guid: b3e56933a7b8c264e8a774f16bf1e67c, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2820672387614308378, guid: b3e56933a7b8c264e8a774f16bf1e67c, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4292544793905612437, guid: b3e56933a7b8c264e8a774f16bf1e67c, type: 3}
       propertyPath: m_Name
       value: Tile2D (1)
