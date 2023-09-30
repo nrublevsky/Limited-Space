@@ -14,7 +14,7 @@ public class CheckOccupancy : MonoBehaviour
         {
             if (puzzlePiece.gameObject.GetComponent<Draggable>().isDragging)
             {
-
+                tileBehavior.occupied = false;
             }
             tileBehavior.occupied = true;
         }

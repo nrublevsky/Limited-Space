@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e831924cd8727654da10762e4b03f291, type: 3}
-  m_Name: 3PieceYellow
+  m_Name: 4PieceBlue
   m_EditorClassIdentifier: 
   pieceName: 
-  size: 3
-  stages: 3
-  lifeLengthSec: 15
+  size: 4
+  stages: 4
+  lifeLengthSec: 50
   multipliers:
   - 0
   - 0
