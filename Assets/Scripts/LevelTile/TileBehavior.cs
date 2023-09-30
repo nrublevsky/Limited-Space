@@ -7,20 +7,29 @@ public class TileBehavior : MonoBehaviour
     public bool affected;
     public GameObject presentFood;
 
-    public List<TileBehavior> neighbors = new List<TileBehavior>();
+    public List<TileBehavior> neighbors;
 
-    public List<Collider2D> checkers;
+    public CheckNeighbor[] checkers;
 
     void Start()
     {
         
+       /* FillInNeighborsList();*/
     }
 
-    
+
     void Update()
     {
-        
+
     }
 
+    public void FillInNeighborsList()
+    {
+        foreach (CheckNeighbor checker in checkers)
+        {
+            
+                neighbors.Add(checker.neighbor);
+        }
 
+    }
 }
