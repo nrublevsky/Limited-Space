@@ -142,6 +142,8 @@ GameObject:
   - component: {fileID: 7539227274135384539}
   - component: {fileID: 9141053086491922218}
   - component: {fileID: 1529259075297299598}
+  - component: {fileID: 8763984794109983184}
+  - component: {fileID: 991592033792762220}
   m_Layer: 0
   m_Name: Puzzle Peice
   m_TagString: Untagged
@@ -249,6 +251,34 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 968170827215974139}
+--- !u!114 &8763984794109983184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968170827215974139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a5ebbd64803d5409bc678496867acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 11400000, guid: 714c915ace1339843ac8c8a61720a8c5, type: 2}
+  lifeCycle: {fileID: 991592033792762220}
+  currentState: 0
+  rotten: 0
+--- !u!114 &991592033792762220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968170827215974139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80adb2eca9c32447b9012d80ef7c3b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8696043025528951336
 GameObject:
   m_ObjectHideFlags: 0
