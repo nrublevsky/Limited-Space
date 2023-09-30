@@ -8,7 +8,11 @@ public class PuzzlePieceBehavior : MonoBehaviour
     public PuzzlePiece piece;
     public LifeCycle lifeCycle;
 
+    public List<TileBehavior> interactedTiles;
+
     public int currentState;
+
+    public bool canBePlaced = false;
 
     public bool rotten = false;
 
@@ -21,8 +25,19 @@ public class PuzzlePieceBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckCanBePlaced();
     }
 
+    public void CheckCanBePlaced()
+    {
+        if (interactedTiles.Count == piece.size)
+        {
+            canBePlaced = true;
+        }
+        if (interactedTiles.Count != piece.size)
+        {
+            canBePlaced = false;
+        }
+    }
 
 }
