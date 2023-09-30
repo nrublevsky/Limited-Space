@@ -24,16 +24,29 @@ public class Draggabletest : MonoBehaviour
         if (isDragging)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = new Vector2(mousePosition.x + offset.x, mousePosition.y + offset.y);
+            transform.position = GetMouseWorldPosition();
         }
     }
     void SnapToGrid()
     {
-        // Calculate the position on the grid
+        
         float snapX = Mathf.Round(transform.position.x);
         float snapY = Mathf.Round(transform.position.y);
 
-        // Set the position to the snapped position
+        
         transform.position = new Vector2(snapX, snapY);
+
+    }
+
+    private Vector2 GetMouseWorldPosition()
+    {
+
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        gameObject.transform.position = other.transform.position;
     }
 }

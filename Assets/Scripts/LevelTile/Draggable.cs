@@ -5,6 +5,7 @@ using UnityEngine;
 public class Draggable : MonoBehaviour
 {
     Vector2 mousePositionOffset;
+    public bool isDragging = false;
 
     private Vector2 GetMouseWorldPosition()
     {
@@ -15,14 +16,22 @@ public class Draggable : MonoBehaviour
     private void OnMouseDown()
     {
         mousePositionOffset= GetMouseWorldPosition();
+        isDragging = true;
     }
     private void OnMouseDrag()
     {
         transform.position = GetMouseWorldPosition();
     }
 
+    private void OnMouseUp()
+    {
+        isDragging = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        transform.position = other.transform.position;
+        if (!isDragging) { 
+        gameObject.transform.position = other.transform.position;
+        }
     }
 }
