@@ -681,39 +681,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1440630720726537181, guid: b3e56933a7b8c264e8a774f16bf1e67c, type: 3}
   m_PrefabInstance: {fileID: 651493087}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2119248002 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 968170827215974139, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
-  m_PrefabInstance: {fileID: 4359752976494606153}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2119248007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119248002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a5ebbd64803d5409bc678496867acb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  piece: {fileID: 11400000, guid: 714c915ace1339843ac8c8a61720a8c5, type: 2}
-  lifeCycle: {fileID: 2119248008}
-  currentState: 0
-  rotten: 0
---- !u!114 &2119248008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119248002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b80adb2eca9c32447b9012d80ef7c3b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1664185626955120891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -830,13 +797,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 968170827215974139, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2119248007}
-    - targetCorrespondingSourceObject: {fileID: 968170827215974139, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2119248008}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

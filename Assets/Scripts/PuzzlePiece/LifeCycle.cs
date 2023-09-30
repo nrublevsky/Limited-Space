@@ -8,7 +8,7 @@ public class LifeCycle : MonoBehaviour
     public void BeAlive(PuzzlePiece piece, PuzzlePieceBehavior behavior)
     {
         Debug.Log("Starting to rot");
-        StartCoroutine(LiveThrough(piece, behavior));
+        StartCoroutine(LiveThrough(piece,behavior));
     }
 
     public IEnumerator LiveThrough(PuzzlePiece piece, PuzzlePieceBehavior behavior)
@@ -16,7 +16,7 @@ public class LifeCycle : MonoBehaviour
         while (!behavior.rotten)
         {
             yield return new WaitForSecondsRealtime(piece.lifeLengthSec / piece.stages);
-            Debug.Log(behavior.gameObject.name + " is getting worse");
+            Debug.Log(behavior.gameObject.name+" is getting worse");
             behavior.currentState++;
 
             if (behavior.currentState == piece.stages)

@@ -16,7 +16,7 @@ public class TileBehavior : MonoBehaviour
     void Start()
     {
         
-       /* FillInNeighborsList();*/
+       
     }
 
 
@@ -25,13 +25,5 @@ public class TileBehavior : MonoBehaviour
 
     }
 
-    public void FillInNeighborsList()
-    {
-        foreach (CheckNeighbor checker in checkers)
-        {
-            
-                neighbors.Add(checker.neighbor);
-        }
-
-    }
+   
 }

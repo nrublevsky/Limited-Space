@@ -15,7 +15,7 @@ MonoBehaviour:
   pieceName: 
   size: 3
   stages: 3
-  lifeLengthSec: 3
+  lifeLengthSec: 5
   multipliers:
   - 0
   - 0
