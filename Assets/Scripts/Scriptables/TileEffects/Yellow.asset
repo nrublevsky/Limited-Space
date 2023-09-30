@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd31cf20d280f746a0835972e474988, type: 3}
+  m_Name: Yellow
+  m_EditorClassIdentifier: 
+  EffectName: 
+  neighborTimerAdder: 0
+  neighborTimerDecreaser: 0
+  magic: 0
+  PositiveCombination:
+  - {fileID: 11400000}
+  - {fileID: 11400000, guid: 269767fd3bd36f64f96be0c1344727cd, type: 2}
+  - {fileID: 11400000, guid: ab26e61fdba814b4a97225301ffd8dd6, type: 2}
+  - {fileID: 11400000, guid: 2ebcbb0f559a8db4080d2894b8e0f234, type: 2}
+  - {fileID: 11400000, guid: ca50091a21a225d42abba799517951a6, type: 2}
+  NegativeCombination:
+  - {fileID: 11400000, guid: 70eb3c5e0dbc3f743a530c618a88474a, type: 2}
+  - {fileID: 11400000, guid: fc2849d1354d9a7428ce3c20138f44de, type: 2}
+  - {fileID: 11400000, guid: eb6419e28440953448d63337c5bc97e9, type: 2}
+  SpecialGood: []
+  SpecialBad:
+  - {fileID: 11400000, guid: e90f1b4681019484ca743862dde01caa, type: 2}

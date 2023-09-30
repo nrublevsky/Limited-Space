@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class TileBehavior : MonoBehaviour
 {
-    public bool affected;
-    public bool occupied;
+    public CheckNeighbor[] checkers;
+    public List<TileBehavior> neighbors;
+    public TileEffect effect;
 
     public GameObject presentFood;
 
-    public List<TileBehavior> neighbors;
+    public CheckOccupancy checkOccupancy;
 
-    public CheckNeighbor[] checkers;
+    public bool affected = false;
+    public bool occupied = false;
+
 
     void Start()
     {
@@ -25,5 +28,5 @@ public class TileBehavior : MonoBehaviour
 
     }
 
-   
+    
 }
