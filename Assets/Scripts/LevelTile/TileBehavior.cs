@@ -4,17 +4,32 @@ using UnityEngine;
 
 public class TileBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool affected;
+    public GameObject presentFood;
+
+    public List<TileBehavior> neighbors;
+
+    public CheckNeighbor[] checkers;
+
     void Start()
     {
         
+       /* FillInNeighborsList();*/
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+
     }
 
+    public void FillInNeighborsList()
+    {
+        foreach (CheckNeighbor checker in checkers)
+        {
+            
+                neighbors.Add(checker.neighbor);
+        }
 
+    }
 }
