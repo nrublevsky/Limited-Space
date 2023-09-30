@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e831924cd8727654da10762e4b03f291, type: 3}
+  m_Name: 3PieceYellow
+  m_EditorClassIdentifier: 
+  pieceName: 
+  size: 3
+  stages: 3
+  lifeLengthSec: 3
+  multipliers:
+  - 0
+  - 0
+  - 0
+  renderer: {fileID: 0}
