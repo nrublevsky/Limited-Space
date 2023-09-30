@@ -20,4 +20,9 @@ public class Draggable : MonoBehaviour
     {
         transform.position = GetMouseWorldPosition();
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        transform.position = other.transform.position;
+    }
 }
