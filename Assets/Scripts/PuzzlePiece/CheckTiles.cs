@@ -32,4 +32,5 @@ public class CheckTiles : MonoBehaviour
             piece.interactedTiles.Remove(currentTile);
         }
     }
+
 }

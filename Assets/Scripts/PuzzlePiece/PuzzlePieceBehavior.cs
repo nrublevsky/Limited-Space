@@ -8,6 +8,7 @@ public class PuzzlePieceBehavior : MonoBehaviour
     public PuzzlePiece piece;
     public LifeCycle lifeCycle;
     public RotatePiece rotatePiece;
+    public TileEffect tileEffect;
 
     public SpriteRenderer spriteRenderer;
 
@@ -30,6 +31,7 @@ public class PuzzlePieceBehavior : MonoBehaviour
     {
         CheckCanBePlaced();
         rotatePiece.RotateWhileDragging(this.gameObject);
+        OccupyInteractedTiles();
     }
 
     public void CheckCanBePlaced()
@@ -41,6 +43,27 @@ public class PuzzlePieceBehavior : MonoBehaviour
         if (interactedTiles.Count != piece.size)
         {
             canBePlaced = false;
+        }
+    }
+
+    public void OccupyInteractedTiles()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            foreach (var tile in interactedTiles)
+            {
+                tile.occupied = true;
+            }
+        }
+    }
+    public void DeOccupyInteractedTiles()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            foreach (var tile in interactedTiles)
+            {
+                tile.occupied = false;
+            }
         }
     }
 
