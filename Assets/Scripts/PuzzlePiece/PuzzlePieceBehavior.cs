@@ -7,6 +7,7 @@ public class PuzzlePieceBehavior : MonoBehaviour
 
     public PuzzlePiece piece;
     public LifeCycle lifeCycle;
+    public RotatePiece rotatePiece;
 
     public List<TileBehavior> interactedTiles;
 
@@ -26,6 +27,7 @@ public class PuzzlePieceBehavior : MonoBehaviour
     void Update()
     {
         CheckCanBePlaced();
+        rotatePiece.RotateWhileDragging(this.gameObject);
     }
 
     public void CheckCanBePlaced()
