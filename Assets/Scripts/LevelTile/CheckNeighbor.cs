@@ -21,7 +21,7 @@ public class CheckNeighbor : MonoBehaviour
     {
         if (collision.CompareTag("Tile"))
         {
-            Debug.Log("Tile is present");
+            /*Debug.Log("Tile is present");*/
             neighbor = collision.GetComponent<TileBehavior>(); 
             parent.neighbors.Add(neighbor);
         }
