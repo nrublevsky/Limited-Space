@@ -9,6 +9,8 @@ public class PuzzlePieceBehavior : MonoBehaviour
     public LifeCycle lifeCycle;
     public RotatePiece rotatePiece;
 
+    public SpriteRenderer spriteRenderer;
+
     public List<TileBehavior> interactedTiles;
 
     public int currentState;

@@ -803,6 +803,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puzzle Peice
       objectReference: {fileID: 0}
+    - target: {fileID: 1363066126827126476, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706209458658341951, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473560104300793558, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473560104300793558, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034313385959382823, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034313385959382823, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7314048309414238249, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.1
@@ -842,6 +866,18 @@ PrefabInstance:
     - target: {fileID: 7314048309414238249, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940621993009966437, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153695721161664059, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153695721161664059, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8763984794109983184, guid: 2fb6a2d74aa115a41856236bb148ab7d, type: 3}
       propertyPath: rotatePiece

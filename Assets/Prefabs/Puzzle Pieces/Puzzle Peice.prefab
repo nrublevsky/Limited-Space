@@ -129,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 1.1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &2700657907171826537
 MonoBehaviour:
@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 1529259075297299598}
   - component: {fileID: 8763984794109983184}
   - component: {fileID: 991592033792762220}
+  - component: {fileID: 5947570570453233108}
   m_Layer: 0
   m_Name: Puzzle Peice
   m_TagString: Untagged
@@ -282,6 +283,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   piece: {fileID: 11400000, guid: 714c915ace1339843ac8c8a61720a8c5, type: 2}
   lifeCycle: {fileID: 991592033792762220}
+  rotatePiece: {fileID: 5947570570453233108}
+  spriteRenderer: {fileID: 0}
   interactedTiles: []
   currentState: 0
   canBePlaced: 0
@@ -296,6 +299,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b80adb2eca9c32447b9012d80ef7c3b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5947570570453233108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968170827215974139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 297bede075aee9e4dbae929be5f78215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5773847497861690286
@@ -458,7 +473,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 1.1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &7258468986893866043
 MonoBehaviour:
@@ -603,7 +618,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 1.1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &1912980306594476382
 MonoBehaviour:
