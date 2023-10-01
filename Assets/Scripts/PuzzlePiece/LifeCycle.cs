@@ -49,6 +49,7 @@ public class LifeCycle : MonoBehaviour
             {
                 Debug.Log(behavior.gameObject.name + " is Rotten Now");
                 behavior.rotten = true;
+                Destroy(behavior.gameObject);
                 break;
             }
         }
