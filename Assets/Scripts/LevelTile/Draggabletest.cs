@@ -7,8 +7,9 @@ public class Draggabletest : MonoBehaviour
     private bool isDragging = false;
     private Vector2 offset;
     private Transform object1Transform;
-    public List< GameObject> object2 = new List<GameObject>();
-
+    /*public List<TileBehavior> interactedTiles;*/
+    /*public List< GameObject> object2 = new List<GameObject>();*/
+    public PuzzlePieceBehavior parentPiece;
 
     void Start()
     {
@@ -58,7 +59,7 @@ public class Draggabletest : MonoBehaviour
             if (collider.gameObject != gameObject) // Skip self
             {
                 // Check if the collider belongs to object2
-                if (object2.Contains(collider.gameObject))
+                if (parentPiece.interactedTiles.Contains(collider.gameObject.GetComponent<TileBehavior>()))
                 {
                     Vector3 object2Center = collider.bounds.center;
                     object1Transform.position = object2Center;
