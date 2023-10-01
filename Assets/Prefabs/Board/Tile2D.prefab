@@ -199,7 +199,6 @@ GameObject:
   - component: {fileID: 7267032402621967690}
   - component: {fileID: 2820672387614308378}
   - component: {fileID: 2489184419938616940}
-  - component: {fileID: 6294156264859794043}
   m_Layer: 8
   m_Name: Tile2D
   m_TagString: Tile
@@ -264,8 +263,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 285925537
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -371,23 +370,8 @@ MonoBehaviour:
   effect: {fileID: 0}
   neighborEffects: []
   presentFood: {fileID: 0}
-  checkOccupancy: {fileID: 6294156264859794043}
   affected: 0
   occupied: 0
---- !u!114 &6294156264859794043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4292544793905612437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9fb36f3860d89949a18662735da36cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puzzlePiece: {fileID: 0}
-  tileBehavior: {fileID: 0}
 --- !u!1 &4836782555426810473
 GameObject:
   m_ObjectHideFlags: 0

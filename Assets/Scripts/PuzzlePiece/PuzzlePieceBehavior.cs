@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,10 +24,37 @@ public class PuzzlePieceBehavior : MonoBehaviour
 
     public bool rotten = false;
 
+    public event Action IsPlaced;
+    public event Action IsDisplaced;
+
     // Start is called before the first frame update
     void Start()
     {
         lifeCycle.BeAlive(piece, this.GetComponent<PuzzlePieceBehavior>());
+
+    }
+
+    private void ClearNeighborPieces()
+    {
+        if (neighborPieces.Count != 0)
+        {
+            foreach (var piece in neighborPieces)
+            {
+                neighborPieces.Remove(piece);
+            }
+        }
+    }
+
+    private void CollectNeighborPieces()
+    {
+        foreach (var probe in checkers)
+        {
+            if (probe.neighbor != null)
+            {
+                neighborPieces.Add(probe.neighbor);
+            }
+        }
+
     }
 
     // Update is called once per frame
@@ -34,8 +62,8 @@ public class PuzzlePieceBehavior : MonoBehaviour
     {
         CheckCanBePlaced();
         rotatePiece.RotateWhileDragging(this.gameObject);
-        OccupyInteractedTiles();
-        FreeInteractedTiles();
+        /*OccupyInteractedTiles();
+        FreeInteractedTiles();*/
     }
 
     public void CheckCanBePlaced()
@@ -54,19 +82,20 @@ public class PuzzlePieceBehavior : MonoBehaviour
 
     public void OccupyInteractedTiles()
     {
-        if (Input.GetKeyDown(KeyCode.Space))// here a condition of ___ and this happens when piece is placed and it starts affecting neighbors of interactedTiles
+
+        foreach (var tile in interactedTiles)
         {
-            foreach (var tile in interactedTiles)
-            {
-                tile.occupied = true;
+            tile.occupied = true;
 
-                tile.OnOccupancy += SelectNeighborEffect;
-                SetCurrentPuzzlePiece();
+            tile.OnOccupancy += SelectNeighborEffect;
+            SetCurrentPuzzlePiece();
 
+            IsPlaced?.Invoke();
 
-            }
-
+            IsPlaced += CollectNeighborPieces;
         }
+
+
     }
 
     public void SetCurrentPuzzlePiece()
@@ -86,17 +115,19 @@ public class PuzzlePieceBehavior : MonoBehaviour
 
     public void FreeInteractedTiles()
     {
-        if (Input.GetKeyDown(KeyCode.V))// here a condition of ___ and this happens when piece is removed and it stops affecting neighbors of interactedTiles
+
+        foreach (var tile in interactedTiles)
         {
-            foreach (var tile in interactedTiles)
-            {
-                tile.occupied = false;
+            tile.occupied = false;
 
-                tile.OnVacancy += PauseBeAlive;
-                RemoveCurrentPuzzlePiece();
+            tile.OnVacancy += PauseBeAlive;
+            RemoveCurrentPuzzlePiece();
 
-            }
+            IsDisplaced?.Invoke();
+
+            IsDisplaced += ClearNeighborPieces;
         }
+
     }
 
     public void RemoveCurrentPuzzlePiece()

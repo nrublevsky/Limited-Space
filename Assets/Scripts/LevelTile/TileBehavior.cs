@@ -13,7 +13,7 @@ public class TileBehavior : MonoBehaviour
 
     public PuzzlePieceBehavior presentFood;
 
-    public CheckOccupancy checkOccupancy;
+   /* public CheckOccupancy checkOccupancy;*/
 
 
     public bool affected = false;

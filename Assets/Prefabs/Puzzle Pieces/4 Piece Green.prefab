@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7940621993009966437}
   - component: {fileID: 4473560104300793558}
   - component: {fileID: 2700657907171826537}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 685184564891005827}
   - component: {fileID: 1956059118229211652}
   - component: {fileID: 2176187028662751868}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 8763984794109983184}
   - component: {fileID: 991592033792762220}
   - component: {fileID: 5947570570453233108}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 4 Piece Green
   m_TagString: PuzzlePiece
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 2047684570521647094}
   - component: {fileID: 3666461449922493339}
   - component: {fileID: 1970640401030924698}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 6875747364350165721}
   - component: {fileID: 4174328774069694487}
   - component: {fileID: 5299403568751275477}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,7 +560,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -619,7 +619,7 @@ GameObject:
   - component: {fileID: 4929966618155979065}
   - component: {fileID: 1533822468235844996}
   - component: {fileID: 1574378694116977615}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -712,7 +712,7 @@ GameObject:
   - component: {fileID: 1750760972689178829}
   - component: {fileID: 2000199170606772676}
   - component: {fileID: 1413775974909251732}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +746,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -805,7 +805,7 @@ GameObject:
   - component: {fileID: 1869161312166485561}
   - component: {fileID: 3347359026307816532}
   - component: {fileID: 4605382120584068273}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -839,7 +839,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -899,7 +899,7 @@ GameObject:
   - component: {fileID: 2616320758696261678}
   - component: {fileID: 6423676602146987529}
   - component: {fileID: 4226763423295895235}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1044,7 +1044,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8597277547862271743}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CollisionCheckManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1077,7 +1077,7 @@ GameObject:
   - component: {fileID: 2387744466274919881}
   - component: {fileID: 4128874682596513059}
   - component: {fileID: 6635867011273598277}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1111,7 +1111,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -1171,7 +1171,7 @@ GameObject:
   - component: {fileID: 1363066126827126476}
   - component: {fileID: 8153695721161664059}
   - component: {fileID: 7258468986893866043}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1318,7 +1318,7 @@ GameObject:
   - component: {fileID: 1706209458658341951}
   - component: {fileID: 5034313385959382823}
   - component: {fileID: 1912980306594476382}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1463,7 +1463,7 @@ GameObject:
   - component: {fileID: 1367338070532340979}
   - component: {fileID: 3059010830139354449}
   - component: {fileID: 6500817557807342001}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1497,7 +1497,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55

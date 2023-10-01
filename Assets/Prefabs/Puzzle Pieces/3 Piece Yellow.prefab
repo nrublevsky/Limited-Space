@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7940621993009966437}
   - component: {fileID: 4473560104300793558}
   - component: {fileID: 2700657907171826537}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 21255188890182595}
   - component: {fileID: 7614308413605491420}
   - component: {fileID: 4014154891277478229}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 5025495324917274746}
   - component: {fileID: 559206767494361254}
   - component: {fileID: 2944978858342031490}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -348,9 +348,9 @@ GameObject:
   - component: {fileID: 8763984794109983184}
   - component: {fileID: 991592033792762220}
   - component: {fileID: 5947570570453233108}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 3 Piece Yellow
-  m_TagString: Untagged
+  m_TagString: PuzzlePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 8173966544730865641}
   - component: {fileID: 3532337135879702585}
   - component: {fileID: 9006487601438221248}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 1034413102984974613}
   - component: {fileID: 3061995926074239320}
   - component: {fileID: 870225891480446008}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +650,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 6872673545002859949}
   - component: {fileID: 6247466212454131894}
   - component: {fileID: 2958560550567794812}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,7 +743,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -802,7 +802,7 @@ GameObject:
   - component: {fileID: 943598154800928389}
   - component: {fileID: 1621316667124830804}
   - component: {fileID: 7178348716971132776}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -836,7 +836,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -895,7 +895,7 @@ GameObject:
   - component: {fileID: 5474684498756069201}
   - component: {fileID: 463415279588641124}
   - component: {fileID: 6289041725765866614}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checker (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +929,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 1363066126827126476}
   - component: {fileID: 8153695721161664059}
   - component: {fileID: 7258468986893866043}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1137,7 +1137,7 @@ GameObject:
   - component: {fileID: 1706209458658341951}
   - component: {fileID: 5034313385959382823}
   - component: {fileID: 1912980306594476382}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
