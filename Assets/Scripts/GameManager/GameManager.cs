@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         numberofPuzzlesTOSpawn = Random.Range(1, 5);
         for (int i = 0; i < numberofPuzzlesTOSpawn; i++)
         {
-            Vector3 spawnPosition = new Vector3(Random.Range(-10f, 10f), 1f, Random.Range(-10f, 10f)); // Adjust the range as needed
+            Vector3 spawnPosition = new Vector2(Random.Range(-10f, 10f), Random.Range(-10f, 10f)); // Adjust the range as needed
             Quaternion spawnRotation = Quaternion.Euler(0, Random.Range(0, 360), 0); // Adjust rotation as needed
 
             int randomIndex = Random.Range(0, puzzlePieceToSpawn.Count);
