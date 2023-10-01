@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public List<GameObject> puzzlePieceToSpawn;
     public List<Vector2> puzzleSpawnPosition;
+    public List<GameObject> puzzlesInScene;
     public int numberofPuzzlesTOSpawn;
     public bool spawnIsDpme = false;
     public int countdownTime = 10;
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(countDownTillNextSpawn());
+        InvokeRepeating("DestroyRandomObjectsWhichArePlaced", 0f, 10f);
+        
     }
 
     // Update is called once per frame
@@ -23,7 +26,9 @@ public class GameManager : MonoBehaviour
             SpawnOPuzzles();
 
         }*/
-       
+
+
+        
     }
 
     void SpawnOPuzzles()
@@ -57,6 +62,25 @@ public class GameManager : MonoBehaviour
 
         }
 
+    }
+   void DestroyRandomObjectsWhichArePlaced()
+    {
+        GameObject[] objectsWhichPlaced = GameObject.FindGameObjectsWithTag("PuzzlePiece");
+        List<GameObject> puzzlePiecesToDestroy = new List<GameObject>();
+        foreach (GameObject obj in objectsWhichPlaced)
+        {
+           
+            PuzzlePieceBehavior puzzlePieceBehavior = obj.GetComponent<PuzzlePieceBehavior>();
+            if(puzzlePieceBehavior != null&& puzzlePieceBehavior.isPlaced)
+            {
+                puzzlePiecesToDestroy.Add(obj);
+            }
+            if (puzzlePiecesToDestroy.Count > 0)
+            {
+                int randomIndex = Random.Range(0, puzzlePiecesToDestroy.Count);
+                Destroy(puzzlePiecesToDestroy[randomIndex]);
+            }
+        }
     }
 }
 
