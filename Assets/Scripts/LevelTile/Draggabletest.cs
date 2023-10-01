@@ -16,7 +16,7 @@ public class Draggabletest : MonoBehaviour
     void OnMouseUp()
     {
         isDragging = false;
-        SnapToGrid();
+       SnapToGrid();
     }
 
     void Update()
