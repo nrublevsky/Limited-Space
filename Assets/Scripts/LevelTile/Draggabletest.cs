@@ -26,7 +26,7 @@ public class Draggabletest : MonoBehaviour
             object1Transform.position = new Vector3(mousePosition.x, mousePosition.y, 0);
             SnapToObject2();
         }
-        
+
     }
     void OnMouseDown()
     {
@@ -34,7 +34,7 @@ public class Draggabletest : MonoBehaviour
         parentPiece.FreeInteractedTiles();
         isDragging = true;
 
-        
+
     }
 
     void OnMouseUp()
@@ -44,14 +44,14 @@ public class Draggabletest : MonoBehaviour
         SnapToObject2();
     }
 
-   /* void Update()
-    {
-        if (isDragging)
-        {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = GetMouseWorldPosition();
-        }
-    }*/
+    /* void Update()
+     {
+         if (isDragging)
+         {
+             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+             transform.position = GetMouseWorldPosition();
+         }
+     }*/
     void SnapToObject2()
     {
 
@@ -61,12 +61,15 @@ public class Draggabletest : MonoBehaviour
         {
             if (collider.gameObject != gameObject) // Skip self
             {
-                // Check if the collider belongs to object2
-                if (parentPiece.interactedTiles.Contains(collider.gameObject.GetComponent<TileBehavior>()))
+                if (collider.CompareTag("Tile"))
                 {
-                    Vector3 object2Center = collider.bounds.center;
-                    object1Transform.position = object2Center;
-                    break; // Once snapped, exit the loop
+                    // Check if the collider belongs to object2
+                    if (parentPiece.interactedTiles.Contains(collider.gameObject.GetComponent<TileBehavior>()))
+                    {
+                        Vector3 object2Center = collider.bounds.center;
+                        object1Transform.position = object2Center;
+                        break; // Once snapped, exit the loop
+                    }
                 }
             }
         }
@@ -80,8 +83,8 @@ public class Draggabletest : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        gameObject.transform.position = other.transform.position;
-    }
+    /* private void OnTriggerEnter2D(Collider2D other)
+     {
+         gameObject.transform.position = other.transform.position;
+     }*/
 }
