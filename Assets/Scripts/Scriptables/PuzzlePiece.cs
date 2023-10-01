@@ -14,7 +14,7 @@ public class PuzzlePiece : ScriptableObject
     public float lifeLengthSec;
     
 
-    public float[] multipliers; 
+/*    public float[] multipliers; */
     
     public Renderer renderer;
 

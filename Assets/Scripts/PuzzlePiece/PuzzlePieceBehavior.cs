@@ -8,12 +8,14 @@ public class PuzzlePieceBehavior : MonoBehaviour
     public PuzzlePiece piece;
     public LifeCycle lifeCycle;
     public RotatePiece rotatePiece;
-    public TileEffect myTileEffect;
-    public TileEffect neighborTileEffect;
+    public NeighborEffect myEffect;
+    public NeighborEffect neighborEffect;
 
     public SpriteRenderer spriteRenderer;
 
+    public List<CheckNeighbor> checkers;
     public List<TileBehavior> interactedTiles;
+    public List<PuzzlePieceBehavior> neighborPieces;
 
     public int currentState;
 
@@ -56,43 +58,77 @@ public class PuzzlePieceBehavior : MonoBehaviour
         {
             foreach (var tile in interactedTiles)
             {
-                tile.OnOccupancy += SelectNeighborTileEffect;
-                tile.CollectNeighborEffects();
                 tile.occupied = true;
-                tile.effect = myTileEffect;
+
+                tile.OnOccupancy += SelectNeighborEffect;
+                SetCurrentPuzzlePiece();
+
+
             }
 
         }
     }
+
+    public void SetCurrentPuzzlePiece()
+    {
+
+        foreach (TileBehavior tile in interactedTiles)
+        {
+            if (tile != null)
+            {
+                if (tile.presentFood == null)
+                {
+                    tile.presentFood = this;
+                }
+            }
+        }
+    }
+
     public void FreeInteractedTiles()
     {
         if (Input.GetKeyDown(KeyCode.V))// here a condition of ___ and this happens when piece is removed and it stops affecting neighbors of interactedTiles
         {
             foreach (var tile in interactedTiles)
             {
-                tile.OnVacancy += PauseBeAlive;
-                tile.effect = null;
                 tile.occupied = false;
+
+                tile.OnVacancy += PauseBeAlive;
+                RemoveCurrentPuzzlePiece();
+
             }
-            neighborTileEffect = null;
         }
     }
 
-    public void SelectNeighborTileEffect()
+    public void RemoveCurrentPuzzlePiece()
     {
-        List<TileEffect> tileEffects = new List<TileEffect>();
 
         foreach (TileBehavior tile in interactedTiles)
         {
-            tileEffects.Add(tile.effect);
+            if (tile != null)
+            {
+                if (tile.presentFood != null)
+                {
+                    tile.presentFood = null;
+                }
+            }
+        }
+    }
+
+    public void SelectNeighborEffect()
+    {
+        List<NeighborEffect> neighborEffects = new List<NeighborEffect>();
+
+        foreach (PuzzlePieceBehavior neigbor in neighborPieces)
+        {
+            neighborEffects.Add(neigbor.myEffect);
         }
 
-        foreach (TileEffect tile in tileEffects)
+        foreach (NeighborEffect effect in neighborEffects)
         {
-            Debug.Log(myTileEffect.NegativeCombination.ToString() + "n/" + " looking for " + tile);
-            if (myTileEffect.NegativeCombination.Contains(tile))
+            Debug.Log(effect.name);
+            if (myEffect.NegativeCombination.Contains(effect))
             {
-                neighborTileEffect = tile;
+                neighborEffect = effect;
                 break;
             }
             /*if (!myTileEffect.NegativeCombination.Contains(tile))
