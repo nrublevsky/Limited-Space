@@ -31,13 +31,16 @@ public class Draggabletest : MonoBehaviour
     void OnMouseDown()
     {
         offset = /*object1Transform.position -*/ Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        parentPiece.FreeInteractedTiles();
         isDragging = true;
+
         
     }
 
     void OnMouseUp()
     {
         isDragging = false;
+        parentPiece.OccupyInteractedTiles();
         SnapToObject2();
     }
 
