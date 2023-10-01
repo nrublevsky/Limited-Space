@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < numberofPuzzlesTOSpawn; i++)
         {
             Vector3 spawnPosition = new Vector2(Random.Range(-10f, 10f), Random.Range(-10f, 10f)); 
-            Quaternion spawnRotation = Quaternion.Euler(0, Random.Range(0, 360), 0); 
+            Quaternion spawnRotation = Quaternion.Euler(0, 0, Random.Range(0, 360)); 
 
             int randomIndex = Random.Range(0, puzzlePieceToSpawn.Count);
             GameObject objectToSpawn = puzzlePieceToSpawn[randomIndex];
