@@ -30,9 +30,11 @@ public class Draggabletest : MonoBehaviour
     }
     void OnMouseDown()
     {
+        if (this.GetComponent<Collider2D>().CompareTag("PuzzlePiece")) { 
         offset = /*object1Transform.position -*/ Camera.main.ScreenToWorldPoint(Input.mousePosition);
         parentPiece.FreeInteractedTiles();
         isDragging = true;
+        }
 
 
     }
