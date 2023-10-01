@@ -17,6 +17,7 @@ public class CheckOccupancy : MonoBehaviour
                 tileBehavior.occupied = false;
             }
             tileBehavior.occupied = true;
+
         }
     }
 

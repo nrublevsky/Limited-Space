@@ -28,13 +28,13 @@ public class LifeCycle : MonoBehaviour
         {
             if (isAlive)
             {
-                if (behavior.neighborTileEffect == null)
+                if (behavior.neighborEffect == null)
                 {
                     yield return new WaitForSecondsRealtime(piece.lifeLengthSec / piece.stages);
                 }
-                if (behavior.neighborTileEffect != null)
+                if (behavior.neighborEffect != null)
                 {
-                    yield return new WaitForSecondsRealtime((piece.lifeLengthSec * behavior.neighborTileEffect.neighborTimerDecreaser) / piece.stages);
+                    yield return new WaitForSecondsRealtime((piece.lifeLengthSec * behavior.neighborEffect.neighborTimerDecreaser) / piece.stages);
                 }
                 Debug.Log(behavior.gameObject.name + " is getting worse");
                 behavior.currentState++;

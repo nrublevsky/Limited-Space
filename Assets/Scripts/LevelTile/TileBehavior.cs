@@ -7,13 +7,13 @@ public class TileBehavior : MonoBehaviour
 {
     public List<CheckNeighbor> checkers;
     public List<TileBehavior> neighbors;
-    public TileEffect effect;
+    public NeighborEffect effect;
 
-    public List<TileEffect> neighborEffects;
+    public List<NeighborEffect> neighborEffects;
 
     public PuzzlePieceBehavior presentFood;
 
-    /*    public CheckOccupancy checkOccupancy;*/
+    public CheckOccupancy checkOccupancy;
 
 
     public bool affected = false;
@@ -26,7 +26,7 @@ public class TileBehavior : MonoBehaviour
     {
 
         BecomeOccupied();
-        CollectNeighborEffects();
+        
     }
 
 
@@ -35,19 +35,7 @@ public class TileBehavior : MonoBehaviour
 
     }
 
-    public void CollectNeighborEffects()
-    {
-        foreach (CheckNeighbor probe in checkers)
-        {
-            if (probe != null)
-            {
-                if (probe.neighbor.effect != null)
-                {
-                    neighborEffects.Add(probe.neighbor.effect);
-                }
-            }
-        }
-    }
+    
 
     public void BecomeOccupied()
     {

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CheckNeighbor : MonoBehaviour
 {
-    public TileBehavior parent;
+    public PuzzlePieceBehavior parent;
 
-    public TileBehavior neighbor;
+    public PuzzlePieceBehavior neighbor;
 
     public int myIndex;
     /*public BoxCollider2D neighbor;*/
@@ -19,11 +19,11 @@ public class CheckNeighbor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Tile"))
+        if (collision.CompareTag("PuzzlePiece"))
         {
             /*Debug.Log("Tile is present");*/
-            neighbor = collision.GetComponent<TileBehavior>(); 
-            parent.neighbors.Add(neighbor);
+            neighbor = collision.GetComponent<PuzzlePieceBehavior>(); 
+            parent.neighborPieces.Add(neighbor);
         }
     }
 
