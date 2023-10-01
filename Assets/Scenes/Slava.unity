@@ -734,6 +734,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &799631670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 799631672}
+  - component: {fileID: 799631671}
+  m_Layer: 0
+  m_Name: GameManageSlava
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &799631671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799631670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de94f148d5625e44ac3806b4035c0e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzlePieceToSpawn:
+  - {fileID: 968170827215974139, guid: 688350c07bcf4c147bc97e1b91c4e4aa, type: 3}
+  - {fileID: 968170827215974139, guid: f4882559fcbf08445b92dffd36d6a8b9, type: 3}
+  - {fileID: 968170827215974139, guid: 7557c694ee13c5e4993491317345f959, type: 3}
+  numberofPuzzlesTOSpawn: 0
+  spawnIsDpme: 0
+  countdownTime: 10
+--- !u!4 &799631672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799631670}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1801968, y: -1.7513357, z: 0.99964887}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &943462015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,3 +2197,4 @@ SceneRoots:
   - {fileID: 313816488}
   - {fileID: 1586757554}
   - {fileID: 1927400400}
+  - {fileID: 799631672}
