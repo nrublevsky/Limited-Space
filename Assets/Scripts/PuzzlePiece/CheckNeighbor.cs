@@ -21,27 +21,20 @@ public class CheckNeighbor : MonoBehaviour
     {
         if (collision.CompareTag("PuzzlePiece"))
         {
-            Debug.Log(collision.gameObject.name + " is present");
+            Debug.Log(collision.GetComponentInParent<PuzzlePieceBehavior>().piece + " is present");
             neighbor = collision.GetComponentInParent<PuzzlePieceBehavior>();
             if (parent.neighborPieces.Count == 0)
             {
-                /*foreach (var piece in parent.neighborPieces)
-                {*/
-                /*if (piece != neighbor)
-                {*/
                 parent.neighborPieces.Add(neighbor);
-                /*}*/
-                /*}*/
             }
             if (parent.neighborPieces.Count > 0)
             {
-                /*foreach (var piece in parent.neighborPieces)
-                {*/
-                    if (!parent.neighborPieces.Contains(neighbor))
-                    {
-                        parent.neighborPieces.Add(neighbor);
-                    }
-                /*}*/
+
+                if (!parent.neighborPieces.Contains(neighbor))
+                {
+                    parent.neighborPieces.Add(neighbor);
+                }
+
             }
 
         }

@@ -12,24 +12,31 @@ public class CheckTiles : MonoBehaviour
         if (collision.gameObject.CompareTag("Tile"))
         {
             currentTile = collision.gameObject.GetComponent<TileBehavior>();
-            piece.interactedTiles.Add(currentTile);
+            if (!piece.interactedTiles.Contains(currentTile))
+            {
+                piece.interactedTiles.Add(currentTile);
+            }
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    /*private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Tile"))
         {
             currentTile = collision.gameObject.GetComponent<TileBehavior>();
         }
-    }
+    }*/
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Tile"))
         {
             currentTile = collision.gameObject.GetComponent<TileBehavior>();
-            piece.interactedTiles.Remove(currentTile);
+            if (piece.interactedTiles.Contains(currentTile))
+            {
+                piece.interactedTiles.Remove(currentTile);
+            }
+            currentTile = null;
         }
     }
 

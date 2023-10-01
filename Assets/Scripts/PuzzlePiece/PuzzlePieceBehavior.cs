@@ -21,6 +21,7 @@ public class PuzzlePieceBehavior : MonoBehaviour
     public int currentState;
 
     public bool canBePlaced = false;
+    public bool isPlaced = false;
 
     public bool rotten = false;
 
@@ -32,6 +33,8 @@ public class PuzzlePieceBehavior : MonoBehaviour
     {
         lifeCycle.BeAlive(piece, this.GetComponent<PuzzlePieceBehavior>());
 
+        IsPlaced += CollectNeighborPieces;
+        IsDisplaced += ClearNeighborPieces;
     }
 
     private void ClearNeighborPieces()
@@ -51,7 +54,11 @@ public class PuzzlePieceBehavior : MonoBehaviour
         {
             if (probe.neighbor != null)
             {
-                neighborPieces.Add(probe.neighbor);
+                if (neighborPieces.Count != 0)
+                {
+                    if (!neighborPieces.Contains(probe.neighbor))
+                    neighborPieces.Add(probe.neighbor);
+                }
             }
         }
 
@@ -62,6 +69,10 @@ public class PuzzlePieceBehavior : MonoBehaviour
     {
         CheckCanBePlaced();
         rotatePiece.RotateWhileDragging(this.gameObject);
+
+        /*IsPlaced += CollectNeighborPieces;
+        IsDisplaced += ClearNeighborPieces;*/
+
         /*OccupyInteractedTiles();
         FreeInteractedTiles();*/
     }
@@ -82,17 +93,19 @@ public class PuzzlePieceBehavior : MonoBehaviour
 
     public void OccupyInteractedTiles()
     {
-
-        foreach (var tile in interactedTiles)
+        if (!isPlaced)
         {
-            tile.occupied = true;
+            isPlaced = true;
+            foreach (var tile in interactedTiles)
+            {
+                tile.occupied = true;
 
-            tile.OnOccupancy += SelectNeighborEffect;
-            SetCurrentPuzzlePiece();
+                tile.OnOccupancy += SelectNeighborEffect;
+                SetCurrentPuzzlePiece();
+                IsPlaced?.Invoke();
+            }
 
-            IsPlaced?.Invoke();
-
-            IsPlaced += CollectNeighborPieces;
+            /*IsPlaced += CollectNeighborPieces;*/
         }
 
 
@@ -115,17 +128,21 @@ public class PuzzlePieceBehavior : MonoBehaviour
 
     public void FreeInteractedTiles()
     {
-
-        foreach (var tile in interactedTiles)
+        if (isPlaced)
         {
-            tile.occupied = false;
+            isPlaced = false;
+            foreach (var tile in interactedTiles)
+            {
+                tile.occupied = false;
 
-            tile.OnVacancy += PauseBeAlive;
-            RemoveCurrentPuzzlePiece();
+                tile.OnVacancy += PauseBeAlive;
+                RemoveCurrentPuzzlePiece();
 
-            IsDisplaced?.Invoke();
+                IsDisplaced?.Invoke();
 
-            IsDisplaced += ClearNeighborPieces;
+
+                /*IsDisplaced += ClearNeighborPieces;*/
+            }
         }
 
     }
@@ -147,6 +164,7 @@ public class PuzzlePieceBehavior : MonoBehaviour
 
     public void SelectNeighborEffect()
     {
+
         List<NeighborEffect> neighborEffects = new List<NeighborEffect>();
 
         foreach (PuzzlePieceBehavior neigbor in neighborPieces)
