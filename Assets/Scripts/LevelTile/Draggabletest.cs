@@ -6,35 +6,66 @@ public class Draggabletest : MonoBehaviour
 {
     private bool isDragging = false;
     private Vector2 offset;
+    private Transform object1Transform;
+    public List< GameObject> object2 = new List<GameObject>();
 
+
+    void Start()
+    {
+        object1Transform = transform;
+    }
+
+
+    void Update()
+    {
+        if (isDragging)
+        {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            /*   object1Transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);*/
+            object1Transform.position = new Vector3(mousePosition.x, mousePosition.y, 0);
+            SnapToObject2();
+        }
+        
+    }
     void OnMouseDown()
     {
-        offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        offset = /*object1Transform.position -*/ Camera.main.ScreenToWorldPoint(Input.mousePosition);
         isDragging = true;
+        
     }
 
     void OnMouseUp()
     {
         isDragging = false;
-        SnapToGrid();
+        SnapToObject2();
     }
 
-    void Update()
+   /* void Update()
     {
         if (isDragging)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = GetMouseWorldPosition();
         }
-    }
-    void SnapToGrid()
+    }*/
+    void SnapToObject2()
     {
-        
-        float snapX = Mathf.Round(transform.position.x);
-        float snapY = Mathf.Round(transform.position.y);
 
-        
-        transform.position = new Vector2(snapX, snapY);
+        Collider2D[] colliders = Physics2D.OverlapPointAll(object1Transform.position);
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject != gameObject) // Skip self
+            {
+                // Check if the collider belongs to object2
+                if (object2.Contains(collider.gameObject))
+                {
+                    Vector3 object2Center = collider.bounds.center;
+                    object1Transform.position = object2Center;
+                    break; // Once snapped, exit the loop
+                }
+            }
+        }
 
     }
 
