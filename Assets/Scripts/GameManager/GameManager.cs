@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public List<GameObject> puzzlePieceToSpawn;
+    public List<Vector2> puzzleSpawnPosition;
     public int numberofPuzzlesTOSpawn;
     public bool spawnIsDpme = false;
     public int countdownTime = 10;
@@ -27,20 +28,23 @@ public class GameManager : MonoBehaviour
 
     void SpawnOPuzzles()
     {
-        numberofPuzzlesTOSpawn = Random.Range(1, 5);
-        for (int i = 0; i < numberofPuzzlesTOSpawn; i++)
-        {
-            Vector3 spawnPosition = new Vector2(Random.Range(-10f, 10f), Random.Range(-10f, 10f)); 
-            Quaternion spawnRotation = Quaternion.Euler(0, 0, Random.Range(0, 360)); 
+
+        
+        numberofPuzzlesTOSpawn = 1;
+       /* for (int i = 0; i < numberofPuzzlesTOSpawn; i++)
+        {*/
+            Vector2 spawnPosition = new Vector2(Random.Range(-10f, 10f), Random.Range(-10f, 10f)); 
+           /* Quaternion spawnRotation = Quaternion.Euler(0, 0, Random.Range(0, 360)); */
 
             int randomIndex = Random.Range(0, puzzlePieceToSpawn.Count);
+            int rabdinsoawposition = Random.Range(0, puzzleSpawnPosition.Count);
             GameObject objectToSpawn = puzzlePieceToSpawn[randomIndex];
 
-            Instantiate(objectToSpawn, spawnPosition, spawnRotation);
+            Instantiate(objectToSpawn, puzzleSpawnPosition[rabdinsoawposition], transform.rotation);
             spawnIsDpme = true;
           /* countdownTime = 10;*/
-            StartCoroutine(countDownTillNextSpawn());
-        }
+            /*StartCoroutine(countDownTillNextSpawn());*/
+        /*}*/
     }
     IEnumerator countDownTillNextSpawn()
     {while(true)
