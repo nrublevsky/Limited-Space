@@ -47,17 +47,28 @@ public class CheckNeighbor : MonoBehaviour
             Debug.Log(collision.gameObject.name + " is present");
             neighbor = collision.GetComponentInParent<PuzzlePieceBehavior>();
             parent.neighborPieces.Remove(neighbor);
+            neighbor = null;
         }
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("PuzzlePiece"))
         {
-            *//*Debug.Log("Tile is present");*//*
+            Debug.Log("Neighbor is Present");
             neighbor = collision.gameObject.GetComponent<PuzzlePieceBehavior>();
             parent.neighborPieces.Add(neighbor);
         }
-    }*/
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("PuzzlePiece"))
+        {
+            Debug.Log("Removing neighbor " + neighbor.name);
+            neighbor = null;
+            parent.neighborPieces.Remove(neighbor);
+        }
+    }
 
 }
