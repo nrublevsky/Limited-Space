@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Nick Test Scene.unity
-    guid: a36b7c74dec3a174cab94afc5cf5fb5e
+    path: Assets/Scenes/Slava.unity
+    guid: b6703f5b4ddc46d429924b69eba007d8
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu.unity
+    guid: 63bf15f110405c848ae45f248028f07c
   m_configObjects: {}
