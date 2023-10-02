@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameManager1 : MonoBehaviour
 {
     public List<GameObject> puzzlePieceToSpawn;
-    public List<Vector2> puzzleSpawnPosition;
+    public List<Vector3> puzzleSpawnPosition;
     public List<GameObject> puzzlesInScene;
 
-    public List<GameObject> puzzlesSpawned;
+    public List<PuzzlePieceBehavior> puzzlesSpawned;
+
+    public StockBehavior stock;
 
     public int numberofPuzzlesTOSpawn;
     public bool spawnIsDpme = false;
@@ -20,8 +22,19 @@ public class GameManager1 : MonoBehaviour
     void Start()
     {
         StartCoroutine(CountDownTillNextSpawn());
+        CollectStockPositions();
         /*InvokeRepeating("DestroyRandomObjectsWhichArePlaced", 0f, 10f);*/
 
+    }
+
+    private void CollectStockPositions()
+    {
+        puzzleSpawnPosition = new List<Vector3>();
+
+        foreach (var piece in stock.stockTiles)
+        {
+            puzzleSpawnPosition.Add(piece.transform.position);
+        }
     }
 
     // Update is called once per frame
@@ -39,29 +52,26 @@ public class GameManager1 : MonoBehaviour
 
     void SpawnOPuzzles()
     {
-        /*if (puzzlesSpawned.Count > stockSize)
-        {*/
-            numberofPuzzlesTOSpawn = 1;
-            /* for (int i = 0; i < numberofPuzzlesTOSpawn; i++)
-             {*/
-            Vector2 spawnPosition = new Vector2(Random.Range(-10f, 10f), Random.Range(-10f, 10f));
-            /* Quaternion spawnRotation = Quaternion.Euler(0, 0, Random.Range(0, 360)); */
 
-            int randomIndex = Random.Range(1, puzzlePieceToSpawn.Count);
-            int rabdinsoawposition = Random.Range(0, puzzleSpawnPosition.Count);
-            GameObject objectToSpawn = puzzlePieceToSpawn[randomIndex];
+        numberofPuzzlesTOSpawn = 1;
 
-            Instantiate(objectToSpawn, puzzleSpawnPosition[rabdinsoawposition], transform.rotation);
-            puzzlesSpawned.Add(objectToSpawn);
-            spawnIsDpme = true;
-            /* countdownTime = 10;*/
-            /*StartCoroutine(countDownTillNextSpawn());*/
-            /*}*/
-        /*}*/
+        Vector2 spawnPosition = new Vector2(Random.Range(-10f, 10f), Random.Range(-10f, 10f));
+
+
+        int randomIndex = Random.Range(1, puzzlePieceToSpawn.Count);
+        int rabdinsoawposition = Random.Range(0, puzzleSpawnPosition.Count);
+        GameObject objectToSpawn = puzzlePieceToSpawn[randomIndex];
+
+        Instantiate(objectToSpawn, puzzleSpawnPosition[rabdinsoawposition], transform.rotation, stock.transform);
+        objectToSpawn.GetComponent<PuzzlePieceBehavior>().OccupyInteractedTiles();
+
+        puzzlesSpawned.Add(objectToSpawn.GetComponent<PuzzlePieceBehavior>());
+        spawnIsDpme = true;
+
     }
     IEnumerator CountDownTillNextSpawn()
     {
-        while (puzzlesSpawned.Count < stockSize)
+        while (stock.presentPieces.Length != stockSize)
         {
 
             yield return new WaitForSecondsRealtime(spawnFrq);

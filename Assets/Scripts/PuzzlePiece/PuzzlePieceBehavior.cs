@@ -33,6 +33,7 @@ public class PuzzlePieceBehavior : MonoBehaviour
     void Start()
     {
         lifeCycle.BeAlive(piece, this.GetComponent<PuzzlePieceBehavior>());
+       
 
 
 
@@ -40,6 +41,11 @@ public class PuzzlePieceBehavior : MonoBehaviour
         IsPlaced += CollectTiles;
         IsDisplaced += ClearNeighborPieces;
         IsDisplaced += ClearTiles;*/
+    }
+
+    private void Awake()
+    {
+        OccupyInteractedTiles();
     }
 
     /*private void ClearNeighborPieces()
@@ -135,9 +141,11 @@ public class PuzzlePieceBehavior : MonoBehaviour
     {
         {
             isPlaced = true;
+            this.transform.parent = null;
             CollectNeighborPieces();
             foreach (var tile in interactedTiles)
             {
+                Debug.LogWarning("I am occupuing " + tile.name);
                 tile.occupied = true;
 
                 tile.OnOccupancy += SelectNeighborEffect;
@@ -171,6 +179,7 @@ public class PuzzlePieceBehavior : MonoBehaviour
     {
         {
             isPlaced = false;
+            this.transform.parent = null;
             /*Invoke(nameof(CleanUp), 0);*/
             foreach (var tile in interactedTiles)
             {
