@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Draggabletest : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class Draggabletest : MonoBehaviour
     private Transform object1Transform;
     /*public List<TileBehavior> interactedTiles;*/
     /*public List< GameObject> object2 = new List<GameObject>();*/
-    public PuzzlePieceBehavior parentPiece;
+    public PuzzlePieceBehavior draggedPuzzlePiece;
+
+    public UnityEvent CheckTileAndNeighbor;
 
     void Start()
     {
@@ -30,9 +33,10 @@ public class Draggabletest : MonoBehaviour
     }
     void OnMouseDown()
     {
+        /*Physics2D.queriesHitTriggers = true;*/
         if (this.GetComponent<Collider2D>().CompareTag("PuzzlePiece")) { 
         offset = /*object1Transform.position -*/ Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        parentPiece.FreeInteractedTiles();
+        draggedPuzzlePiece.FreeInteractedTiles();
         isDragging = true;
         }
 
@@ -42,7 +46,7 @@ public class Draggabletest : MonoBehaviour
     void OnMouseUp()
     {
         isDragging = false;
-        parentPiece.OccupyInteractedTiles();
+        draggedPuzzlePiece.OccupyInteractedTiles();
         SnapToObject2();
     }
 
@@ -66,7 +70,7 @@ public class Draggabletest : MonoBehaviour
                 if (collider.CompareTag("Tile"))
                 {
                     // Check if the collider belongs to object2
-                    if (parentPiece.interactedTiles.Contains(collider.gameObject.GetComponent<TileBehavior>()))
+                    if (draggedPuzzlePiece.interactedTiles.Contains(collider.gameObject.GetComponent<TileBehavior>()))
                     {
                         Vector3 object2Center = collider.bounds.center;
                         object1Transform.position = object2Center;

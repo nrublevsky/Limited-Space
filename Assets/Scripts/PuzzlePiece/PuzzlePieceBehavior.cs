@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PuzzlePieceBehavior : MonoBehaviour
@@ -17,7 +18,7 @@ public class PuzzlePieceBehavior : MonoBehaviour
     public List<CheckNeighbor> checkers;
     public List<TileBehavior> interactedTiles;
     public List<PuzzlePieceBehavior> neighborPieces;
-    public List<CheckTiles> tilesUnderPieces;
+    public CheckTiles1 tileChecker;
 
     public int currentState;
 
@@ -26,13 +27,13 @@ public class PuzzlePieceBehavior : MonoBehaviour
 
     public bool rotten = false;
 
-    public event Action IsPlaced;
-    public event Action IsDisplaced;
+    /*public event Action IsPlaced;
+    public event Action IsDisplaced;*/
 
     // Start is called before the first frame update
     void Start()
     {
-        lifeCycle.BeAlive(piece, this.GetComponent<PuzzlePieceBehavior>());
+        /*lifeCycle.BeAlive(piece, this.GetComponent<PuzzlePieceBehavior>());*/
        
 
 
@@ -43,10 +44,10 @@ public class PuzzlePieceBehavior : MonoBehaviour
         IsDisplaced += ClearTiles;*/
     }
 
-    private void Awake()
+    /*private void Awake()
     {
         OccupyInteractedTiles();
-    }
+    }*/
 
     /*private void ClearNeighborPieces()
     {
@@ -95,6 +96,12 @@ public class PuzzlePieceBehavior : MonoBehaviour
         /*rotatePiece.RotateWhileDragging(this.gameObject);*/
     }
 
+   /* public void SpreadTheMessage()
+    {
+
+        SendMessage("CheckNeighbors");
+
+    }*/
     private void CollectNeighborPieces()
     {
         if (isPlaced)
@@ -142,16 +149,19 @@ public class PuzzlePieceBehavior : MonoBehaviour
         {
             isPlaced = true;
             this.transform.parent = null;
+            tileChecker.enabled = true;
             CollectNeighborPieces();
             foreach (var tile in interactedTiles)
             {
                 Debug.LogWarning("I am occupuing " + tile.name);
+                tile.OnOccupancy += SelectNeighborEffect;
+
                 tile.occupied = true;
 
-                tile.OnOccupancy += SelectNeighborEffect;
                 SetCurrentPuzzlePiece();
-                IsPlaced?.Invoke();
+                /*IsPlaced?.Invoke();*/
             }
+            tileChecker.enabled = false;
             /*Invoke(nameof(CleanUp), 0);*/
 
             /*IsPlaced += CollectNeighborPieces;*/

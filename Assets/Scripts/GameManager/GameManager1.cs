@@ -18,6 +18,8 @@ public class GameManager1 : MonoBehaviour
     public int spawnFrq;
     public int stockSize;
 
+    public bool isPlaying;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,9 +63,10 @@ public class GameManager1 : MonoBehaviour
         int randomIndex = Random.Range(1, puzzlePieceToSpawn.Count);
         int rabdinsoawposition = Random.Range(0, puzzleSpawnPosition.Count);
         GameObject objectToSpawn = puzzlePieceToSpawn[randomIndex];
+        PuzzlePieceBehavior puzzlePiece = objectToSpawn.GetComponent<PuzzlePieceBehavior>();
 
         Instantiate(objectToSpawn, puzzleSpawnPosition[rabdinsoawposition], transform.rotation, stock.transform);
-        objectToSpawn.GetComponent<PuzzlePieceBehavior>().OccupyInteractedTiles();
+       /* puzzlePiece.*/
 
         puzzlesSpawned.Add(objectToSpawn.GetComponent<PuzzlePieceBehavior>());
         spawnIsDpme = true;
@@ -71,14 +74,14 @@ public class GameManager1 : MonoBehaviour
     }
     IEnumerator CountDownTillNextSpawn()
     {
-        while (stock.presentPieces.Length != stockSize)
+        while (isPlaying)
         {
+            while (stock.presentPieces.Length != stockSize)
+            {
+                yield return new WaitForSecondsRealtime(spawnFrq);
 
-            yield return new WaitForSecondsRealtime(spawnFrq);
-
-
-            SpawnOPuzzles();
-
+                SpawnOPuzzles();
+            }
         }
 
     }
