@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1952845788837440947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8037908069095668582}
+  - component: {fileID: 1138161917554347012}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8037908069095668582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952845788837440947}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1138161917554347012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952845788837440947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95525825a31697740b2daa21d62d31ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzlePieceToSpawn:
+  - {fileID: 968170827215974139, guid: 24a82a502e27ad3499879aa0a1a588d7, type: 3}
+  - {fileID: 968170827215974139, guid: ad56bec6ad3ed1d4f908d997ab527af7, type: 3}
+  - {fileID: 968170827215974139, guid: a022021bea4683e4f887cf03addcb0a0, type: 3}
+  - {fileID: 968170827215974139, guid: c912facff22bc2e4e8ca1b504dabd058, type: 3}
+  - {fileID: 968170827215974139, guid: 307f211faa714e04abc7e5390ce38296, type: 3}
+  - {fileID: 968170827215974139, guid: ec2b097dc4c3f3e41a7ad2cae2ae725c, type: 3}
+  - {fileID: 968170827215974139, guid: 00ed3ef45e483d24e9159b4d55aafe8b, type: 3}
+  - {fileID: 968170827215974139, guid: 08c59388fb8d58a4092a8984b0908d4f, type: 3}
+  puzzleSpawnPosition:
+  - {x: 5, y: 1.1, z: 0}
+  - {x: 5, y: 2.2, z: 4.75e-43}
+  - {x: 5, y: 3.3, z: 5.198879e+10}
+  puzzlesInScene: []
+  puzzlesSpawned: []
+  stock: {fileID: 0}
+  numberofPuzzlesTOSpawn: 0
+  spawnIsDpme: 0
+  countdownTime: 10
+  spawnFrq: 3
+  stockSize: 3
+  isPlaying: 0
