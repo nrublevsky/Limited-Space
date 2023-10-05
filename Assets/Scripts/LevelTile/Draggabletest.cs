@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Draggabletest : MonoBehaviour
 {
-    private bool isDragging = false;
-    private Vector2 offset;
-    private Transform object1Transform;
+    public bool isDragging = false;
+    public Vector2 offset;
+    public Transform object1Transform;
+    public Vector2 mousePosition;
+
+    public Color initColor;
     /*public List<TileBehavior> interactedTiles;*/
     /*public List< GameObject> object2 = new List<GameObject>();*/
     public PuzzlePieceBehavior draggedPuzzlePiece;
@@ -16,37 +20,69 @@ public class Draggabletest : MonoBehaviour
 
     void Start()
     {
-        object1Transform = transform;
+        object1Transform = this.gameObject.transform;
+        initColor = draggedPuzzlePiece.spriteRenderer.color;
     }
 
 
     void Update()
     {
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (isDragging)
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
             /*   object1Transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);*/
-            object1Transform.position = new Vector3(mousePosition.x, mousePosition.y, 0);
+            object1Transform.position = new Vector2(mousePosition.x, mousePosition.y);
             SnapToObject2();
         }
 
     }
-    void OnMouseDown()
+    public void OnMouseDown()
     {
-        /*Physics2D.queriesHitTriggers = true;*/
-        if (this.GetComponent<Collider2D>().CompareTag("PuzzlePiece")) { 
-        offset = /*object1Transform.position -*/ Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        draggedPuzzlePiece.FreeInteractedTiles();
-        isDragging = true;
+        Physics2D.queriesHitTriggers = true;
+
+        Debug.LogWarning(gameObject.GetComponent<Collider2D>().name);
+
+        if (gameObject.layer == LayerMask.NameToLayer("PuzzlePieces"))
+        {
+            Debug.LogWarning(gameObject.name);
+
+            object1Transform.position = new Vector2(mousePosition.x, mousePosition.y);
+            draggedPuzzlePiece.FreeInteractedTiles();
+            isDragging = true;
         }
 
 
     }
 
-    void OnMouseUp()
+    private void OnMouseOver()
+    {
+        if (gameObject.layer == LayerMask.NameToLayer("PuzzlePieces"))
+        {
+            if (draggedPuzzlePiece != null)
+            {
+                draggedPuzzlePiece.spriteRenderer.color = Color.grey;
+            }
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        if (gameObject.layer == LayerMask.NameToLayer("PuzzlePieces"))
+        {
+            if (draggedPuzzlePiece != null)
+            {
+                draggedPuzzlePiece.spriteRenderer.color = initColor;
+            }
+        }
+    }
+
+    public void OnMouseUp()
     {
         isDragging = false;
+        
         draggedPuzzlePiece.OccupyInteractedTiles();
+        /*draggedPuzzlePiece.gameObject.transform.position = draggedPuzzlePiece.interactedTiles.ElementAt(1).gameObject.GetComponent<Collider2D>().bounds.center;*/
         SnapToObject2();
     }
 
@@ -72,7 +108,7 @@ public class Draggabletest : MonoBehaviour
                     // Check if the collider belongs to object2
                     if (draggedPuzzlePiece.interactedTiles.Contains(collider.gameObject.GetComponent<TileBehavior>()))
                     {
-                        Vector3 object2Center = collider.bounds.center;
+                        Vector2 object2Center = collider.bounds.center;
                         object1Transform.position = object2Center;
                         break; // Once snapped, exit the loop
                     }

@@ -189,19 +189,13 @@ public class PuzzlePieceBehavior : MonoBehaviour
     {
         {
             isPlaced = false;
-            this.transform.parent = null;
-            /*Invoke(nameof(CleanUp), 0);*/
+            
             foreach (var tile in interactedTiles)
             {
                 tile.occupied = false;
 
                 tile.OnVacancy += PauseBeAlive;
                 RemoveCurrentPuzzlePiece();
-
-                /*IsDisplaced?.Invoke();*/
-
-
-                /*IsDisplaced += ClearNeighborPieces;*/
             }
         }
 
@@ -222,22 +216,6 @@ public class PuzzlePieceBehavior : MonoBehaviour
         }
     }
 
-    /*public void CleanUp()
-    {
-        if (isPlaced)
-        {
-            isPlaced = false;
-            ClearNeighborPieces();
-            ClearTiles();
-        }
-        if (!isPlaced)
-        {
-            isPlaced = true;
-            CollectNeighborPieces();
-            CollectTiles();
-
-        }
-    }*/
     public void SelectNeighborEffect()
     {
 
