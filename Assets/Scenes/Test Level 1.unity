@@ -1092,6 +1092,7 @@ GameObject:
   - component: {fileID: 304019262}
   - component: {fileID: 304019261}
   - component: {fileID: 304019260}
+  - component: {fileID: 304019263}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1149,6 +1150,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &304019263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304019259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1001 &313504091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3636,6 +3654,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3883412241892255859, guid: 2b1529a49f006e549ab9864168801534, type: 3}
+      propertyPath: CheckTileAndNeighbor.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7911923552149503297, guid: 2b1529a49f006e549ab9864168801534, type: 3}
       propertyPath: m_Name
       value: Brown Piece
@@ -3653,6 +3675,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4696534138187421302, guid: e352b22e12d0bae4ca17719faaf942f5, type: 3}
   m_PrefabInstance: {fileID: 1369145209}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1285592880 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7359222760200423121, guid: 372b095e143504c4881285f1a390dfdf, type: 3}
+  m_PrefabInstance: {fileID: 1872914057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1285592884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285592880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 512
+  m_MaxRayIntersections: 1
 --- !u!1001 &1289080266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4618,7 +4661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1645553736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4635,7 +4678,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 503
 --- !u!114 &1645553737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5538,7 +5581,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7359222760200423121, guid: 372b095e143504c4881285f1a390dfdf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1285592884}
   m_SourcePrefab: {fileID: 100100000, guid: 372b095e143504c4881285f1a390dfdf, type: 3}
 --- !u!4 &1914662649 stripped
 Transform:
