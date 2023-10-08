@@ -17,7 +17,7 @@ public class PuzzlePieceBehavior : MonoBehaviour
 
     public List<CheckNeighbor> checkers;
     public List<TileBehavior> interactedTiles;
-    public List<PuzzlePieceBehavior> neighborPieces;
+    public List<PuzzlePieceBehavior> neighborPiecesList;
     public CheckTiles1 tileChecker;
 
     public int currentState;
@@ -102,7 +102,7 @@ public class PuzzlePieceBehavior : MonoBehaviour
         SendMessage("CheckNeighbors");
 
     }*/
-    private void CollectNeighborPieces()
+    /*private void CollectNeighborPieces()
     {
         if (isPlaced)
         {
@@ -110,21 +110,21 @@ public class PuzzlePieceBehavior : MonoBehaviour
             foreach (var probe in checkers)
             {
                 Debug.Log(probe.name);
-                if (probe.neighbor != null)
+                if (probe.neighbors != null)
                 {
-                    Debug.Log($"{probe.neighbor.name}");
-                    /*if (neighborPieces.Count != 0)
-                    {*/
-                        if (!neighborPieces.Contains(probe.neighbor))
+                    Debug.Log($"{probe.neighbors.name}");
+                    *//*if (neighborPieces.Count != 0)
+                    {*//*
+                        if (!neighborPieces.Contains(probe.neighbors))
                         {
-                            neighborPieces.Add(probe.neighbor);
+                            neighborPieces.Add(probe.neighbors);
                         }
-                    /*}*/
+                    *//*}*//*
                 }
             }
         }
 
-    }
+    }*/
     public void CheckCanBePlaced()
     {
         foreach (var item in interactedTiles)
@@ -150,7 +150,7 @@ public class PuzzlePieceBehavior : MonoBehaviour
             isPlaced = true;
             this.transform.parent = null;
             tileChecker.enabled = true;
-            CollectNeighborPieces();
+            /*CollectNeighborPieces();*/
             foreach (var tile in interactedTiles)
             {
                 Debug.LogWarning("I am occupuing " + tile.name);
@@ -221,7 +221,7 @@ public class PuzzlePieceBehavior : MonoBehaviour
 
         List<NeighborEffect> neighborEffects = new List<NeighborEffect>();
 
-        foreach (PuzzlePieceBehavior neigbor in neighborPieces)
+        foreach (PuzzlePieceBehavior neigbor in neighborPiecesList)
         {
             neighborEffects.Add(neigbor.myEffect);
         }
