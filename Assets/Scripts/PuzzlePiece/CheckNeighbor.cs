@@ -6,12 +6,8 @@ public class CheckNeighbor : MonoBehaviour
 {
     public PuzzlePieceBehavior parent;
 
-    public PuzzlePieceBehavior neighbor;
+    public List<PuzzlePieceBehavior> neighbors;
 
-    public int myIndex;
-    /*public BoxCollider2D neighbor;*/
-
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -21,20 +17,12 @@ public class CheckNeighbor : MonoBehaviour
     {
         if (collision.CompareTag("PuzzlePiece"))
         {
-            Debug.Log(collision.GetComponentInParent<PuzzlePieceBehavior>().piece + " is present");
-            neighbor = collision.GetComponentInParent<PuzzlePieceBehavior>();
-            if (parent.neighborPieces.Count == 0)
+            if (collision.gameObject != this.gameObject)
             {
-                parent.neighborPieces.Add(neighbor);
-            }
-            if (parent.neighborPieces.Count > 0)
-            {
+                Debug.Log(collision.GetComponentInParent<PuzzlePieceBehavior>().piece + " is present");
+                neighbors.Add(collision.GetComponentInParent<PuzzlePieceBehavior>());
 
-                if (!parent.neighborPieces.Contains(neighbor))
-                {
-                    parent.neighborPieces.Add(neighbor);
-                }
-
+                parent.neighborPiecesList.Add(collision.GetComponentInParent<PuzzlePieceBehavior>());
             }
 
         }
@@ -45,30 +33,12 @@ public class CheckNeighbor : MonoBehaviour
         if (collision.CompareTag("PuzzlePiece"))
         {
             Debug.Log(collision.gameObject.name + " is present");
-            neighbor = collision.GetComponentInParent<PuzzlePieceBehavior>();
-            parent.neighborPieces.Remove(neighbor);
-            neighbor = null;
+            neighbors.Remove(collision.GetComponentInParent<PuzzlePieceBehavior>());
+            parent.neighborPiecesList.Remove(collision.GetComponentInParent<PuzzlePieceBehavior>());
+            /*neighbors = null;*/
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("PuzzlePiece"))
-        {
-            Debug.Log("Neighbor is Present");
-            neighbor = collision.gameObject.GetComponent<PuzzlePieceBehavior>();
-            parent.neighborPieces.Add(neighbor);
-        }
-    }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("PuzzlePiece"))
-        {
-            Debug.Log("Removing neighbor " + neighbor.name);
-            neighbor = null;
-            parent.neighborPieces.Remove(neighbor);
-        }
-    }
 
 }
