@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class RotatePiece : MonoBehaviour
 {
+    public PuzzlePieceBehavior puzzlePiece;
 
-    public void RotateWhileDragging(GameObject piece)
+    public void RotateToEnemy(GameObject target)
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            piece.transform.Rotate(0, 0, 90);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            piece.transform.Rotate(0, 0, -90);
-        }
-
+            transform.LookAt(target.transform);
     }
 }
