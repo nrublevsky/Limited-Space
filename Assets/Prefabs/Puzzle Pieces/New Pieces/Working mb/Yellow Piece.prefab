@@ -137,10 +137,10 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -662,15 +662,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7314048309414238249, guid: 08c59388fb8d58a4092a8984b0908d4f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -770.7
       objectReference: {fileID: 0}
     - target: {fileID: 7314048309414238249, guid: 08c59388fb8d58a4092a8984b0908d4f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 330.3
       objectReference: {fileID: 0}
     - target: {fileID: 7314048309414238249, guid: 08c59388fb8d58a4092a8984b0908d4f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7314048309414238249, guid: 08c59388fb8d58a4092a8984b0908d4f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -768,6 +768,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 968170827215974139, guid: 08c59388fb8d58a4092a8984b0908d4f, type: 3}
       insertIndex: 2
       addedObject: {fileID: 6518346130385960864}
+    - targetCorrespondingSourceObject: {fileID: 968170827215974139, guid: 08c59388fb8d58a4092a8984b0908d4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2091099125640117345}
   m_SourcePrefab: {fileID: 100100000, guid: 08c59388fb8d58a4092a8984b0908d4f, type: 3}
 --- !u!1 &3985771741193878783 stripped
 GameObject:
@@ -855,7 +858,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -871,6 +874,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2091099125640117345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985771741193878783}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07db17ff4c5565649b6f802c111b6e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4872896754219330516 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8763984794109983184, guid: 08c59388fb8d58a4092a8984b0908d4f, type: 3}
