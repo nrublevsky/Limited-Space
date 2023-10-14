@@ -5,20 +5,25 @@ using UnityEngine;
 public class EnemyChecker : MonoBehaviour
 {
     public GunBehavior gun;
+    public List<GameObject> targets;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            gun.reachableEnemies.Add(collision.gameObject);
+            Debug.Log(collision.gameObject.name + " is noticed");
+            targets.Add(collision.gameObject);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            gun.reachableEnemies.Remove(collision.gameObject);
+            Debug.Log(collision.gameObject.name + " is noticed");
+            targets.Remove(collision.gameObject);
         }
     }
 }

@@ -12,7 +12,7 @@ public class GunBehavior : MonoBehaviour
     public EnemyChecker enemyChecker;
 
     [Header("Dynamic Lists")]
-    public List<GameObject> reachableEnemies;
+    public List<GameObject> targetsInReach;
 
     [Header("Static Lists")]
     public List<Weapon> weapons;
@@ -21,7 +21,7 @@ public class GunBehavior : MonoBehaviour
     public bool shooting;
 
     [Header("Changable Objects")]
-    public GameObject closestEnemy;
+    public GameObject closestTarget;
 
     // Start is called before the first frame update
     void Start()
@@ -32,39 +32,59 @@ public class GunBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        SelectClosestEnemy();
     }
 
     public void SelectClosestEnemy()
     {
-        if (reachableEnemies.Count == 1)
+        targetsInReach = enemyChecker.targets;
+
+        //If there is Less then 1 target - do nothing
+        if (targetsInReach.Count < 1)
         {
-            closestEnemy = reachableEnemies[0];
+            //leaving empty for now
         }
-        if (reachableEnemies.Count > 1)
+        
+        //If there is only 1 target
+        if (targetsInReach.Count == 1)
         {
-            Vector2 closestEnemyPosition = Vector2.zero;
+            closestTarget = targetsInReach[0];
+        }
+        
+        //If there is more than 1 target
+        if (targetsInReach.Count > 1)
+        {
+            float closestEnemyPosition = 0;
 
-            foreach (GameObject enemy in reachableEnemies)
+            //Check distance to each of the targets
+            foreach (GameObject enemy in targetsInReach)
             {
-                Vector2 enemyPosition = enemy.transform.position;
+                float distanceToTarget = Vector2.Distance(transform.position, enemy.transform.position);
 
-                if (closestEnemyPosition != Vector2.zero)
+
+                Debug.Log("Distance to " + enemy.name + " is " + distanceToTarget);
+
+                //If distance to closest enemy is not 0 (every cycle after the first one )
+                if (Mathf.Abs(closestEnemyPosition) != 0)
                 {
-                    if (closestEnemyPosition.sqrMagnitude < enemyPosition.sqrMagnitude)
+                    //if distance to this enemy is less than distance to currently closest enemy
+                    if (Mathf.Abs(closestEnemyPosition) > Mathf.Abs(distanceToTarget))
                     {
-                        closestEnemyPosition = enemyPosition.normalized;
-                        closestEnemy = enemy;
+                        closestEnemyPosition = distanceToTarget;
+                        closestTarget = enemy;
                     }
-                    if (closestEnemyPosition.sqrMagnitude > enemyPosition.sqrMagnitude)
+
+                    //if distance to this enemy is bigger that distance to currently closest enemy
+                    if (Mathf.Abs(closestEnemyPosition) < Mathf.Abs(distanceToTarget))
                     {
                         //leaving empty for now
                     }
                 }
-                if (closestEnemyPosition == Vector2.zero)
+                //In case if closest enemy distance is 0 (first object in the list under for-each cycle)
+                if (closestEnemyPosition == 0)
                 {
-                    closestEnemyPosition = enemyPosition.normalized;
-                    closestEnemy = enemy;
+                    closestEnemyPosition = distanceToTarget;
+                    closestTarget = enemy;
                 }
             }
         }
