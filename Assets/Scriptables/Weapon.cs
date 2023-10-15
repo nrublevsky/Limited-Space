@@ -5,10 +5,13 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Weapon : ScriptableObject
 {
-    public Sprite projectileSprite;
+    public GameObject bullet;
+    public float projectileSpeed;
+
 
     public float damage;
-    public float attackSpeed;
+    public float shootFrequency;
     public float shotProjectileCount;
     public float maxProjectiles;
+    public float maxAmmo;
 }

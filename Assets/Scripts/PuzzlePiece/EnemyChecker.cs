@@ -12,7 +12,7 @@ public class EnemyChecker : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log(collision.gameObject.name + " is noticed");
+            /*Debug.Log(collision.gameObject.name + " is noticed");*/
             targets.Add(collision.gameObject);
         }
     }
@@ -22,7 +22,7 @@ public class EnemyChecker : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log(collision.gameObject.name + " is noticed");
+            /*Debug.Log(collision.gameObject.name + " is noticed");*/
             targets.Remove(collision.gameObject);
         }
     }

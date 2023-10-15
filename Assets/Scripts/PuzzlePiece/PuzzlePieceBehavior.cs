@@ -9,7 +9,6 @@ public class PuzzlePieceBehavior : MonoBehaviour
 
     public PuzzlePiece piece;
     public LifeCycle lifeCycle;
-    public RotatePiece rotatePiece;
     public NeighborEffect myEffect;
     public NeighborEffect neighborEffect;
 

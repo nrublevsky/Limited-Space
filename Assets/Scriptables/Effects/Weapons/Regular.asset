@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ffa02cc20b8c5840ae3f7d5dfa584ed, type: 3}
   m_Name: Regular
   m_EditorClassIdentifier: 
-  projectileSprite: {fileID: 0}
+  bullet: {fileID: 1442989724219080294, guid: d0eba48d3f6ed9d4a9bbf28934bec078, type: 3}
+  projectileSpeed: 11441
   damage: 1
-  attackSpeed: 1
+  shootFrequency: 3
   shotProjectileCount: 1
   maxProjectiles: 5
+  maxAmmo: 50

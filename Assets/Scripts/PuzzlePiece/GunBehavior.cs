@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 public class GunBehavior : MonoBehaviour
 {
     [Header("Actions")]
-    public RotatePiece rotatePiece;
+    public FaceTarget faceTarget;
     public Shoot shoot;
 
     [Header("Parts")]
@@ -23,16 +24,29 @@ public class GunBehavior : MonoBehaviour
     [Header("Changable Objects")]
     public GameObject closestTarget;
 
-    // Start is called before the first frame update
+    [Header("Variables")]
+    public Weapon currentWeapon;
+    public float currentAmmo;
+    public float currentShootFreq;
+
+
+
     void Start()
     {
-
+        //when created - sets variables based on it's setting
+        SetInitialValues();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         SelectClosestEnemy();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ShootPresentTarget();
+
+        }
     }
 
     public void SelectClosestEnemy()
@@ -44,13 +58,13 @@ public class GunBehavior : MonoBehaviour
         {
             //leaving empty for now
         }
-        
+
         //If there is only 1 target
         if (targetsInReach.Count == 1)
         {
             closestTarget = targetsInReach[0];
         }
-        
+
         //If there is more than 1 target
         if (targetsInReach.Count > 1)
         {
@@ -62,7 +76,7 @@ public class GunBehavior : MonoBehaviour
                 float distanceToTarget = Vector2.Distance(transform.position, enemy.transform.position);
 
 
-                Debug.Log("Distance to " + enemy.name + " is " + distanceToTarget);
+                /*Debug.Log("Distance to " + enemy.name + " is " + distanceToTarget);*/
 
                 //If distance to closest enemy is not 0 (every cycle after the first one )
                 if (Mathf.Abs(closestEnemyPosition) != 0)
@@ -86,8 +100,25 @@ public class GunBehavior : MonoBehaviour
                     closestEnemyPosition = distanceToTarget;
                     closestTarget = enemy;
                 }
+                /*faceTarget.RotateToEnemy(closestTarget);*/
             }
+            /*faceTarget.RotateToEnemy(closestTarget);*/
         }
+        if (targetsInReach.Count != 0)
+        {
+            faceTarget.RotateToEnemy(closestTarget);
+        }
+    }
+
+    public void ShootPresentTarget()
+    {
+        shoot.ShootWeapon();
+    }
+    public void SetInitialValues()
+    {
+        currentWeapon = weapons[0];
+        currentAmmo = currentWeapon.maxAmmo;
+        currentShootFreq = currentWeapon.shootFrequency;
     }
 
 
