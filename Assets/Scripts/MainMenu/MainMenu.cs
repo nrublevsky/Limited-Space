@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     public GameObject settings;
     public AudioMixer myMixer;
     public Slider musicSlider;
+    public GameObject gameOverScreen;
    
     
     // Start is called before the first frame update
@@ -60,5 +61,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+
+    public void StartAgain()
+    {
+        SceneManager.LoadScene("Slava");
+        gameOverScreen.SetActive(false);
+    }
    
 }
