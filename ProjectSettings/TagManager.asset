@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tile
   - PuzzlePiece
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Checkers
   - Tiles
   - PuzzlePieces
-  - 
-  - 
+  - Gun
+  - Enemy
   - 
   - 
   - 
@@ -48,4 +49,7 @@ TagManager:
     locked: 0
   - name: PuzzlePieces
     uniqueID: 3021731251
+    locked: 0
+  - name: Gun
+    uniqueID: 3115514415
     locked: 0
