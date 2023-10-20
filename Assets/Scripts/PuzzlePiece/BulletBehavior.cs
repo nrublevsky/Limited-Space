@@ -16,6 +16,7 @@ public class BulletBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myRigidbody.AddForce(Vector2.right * Time.deltaTime * myWeapon.projectileSpeed, ForceMode2D.Force) ;
+        //add method to move to Enemy's front position
+
     }
 }
