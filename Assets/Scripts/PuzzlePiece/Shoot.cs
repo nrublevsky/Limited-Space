@@ -23,8 +23,8 @@ public class Shoot : MonoBehaviour
 
     public void ShootWeapon()
     {
-        StartCoroutine(ProduceProjectile(gunBehavior.currentWeapon.bullet, gunBehavior.currentShootFreq));
-        
+        StartCoroutine(ProduceProjectile(gunBehavior.currentWeapon.bullet, ClosestTarget(), gunBehavior.currentShootFreq));
+
 
     }
 
@@ -33,15 +33,20 @@ public class Shoot : MonoBehaviour
         currentAmmo--;
     }
 
-    public IEnumerator ProduceProjectile(GameObject bullet, float currentShootFreq)
+    public IEnumerator ProduceProjectile(GameObject bullet, GameObject target, float currentShootFreq)
     {
-        while (gunBehavior.currentAmmo != 0)
+        while (gunBehavior.currentAmmo != 0 || gunBehavior.closestTarget != null)
         {
-            Instantiate(bullet,gunPoint.transform);
+            
+            Instantiate(bullet, gunPoint.transform);
+            bullet.GetComponent<BulletBehavior>().myTarget = target;
             DeductAmmo(gunBehavior.currentAmmo);
             yield return new WaitForSecondsRealtime(currentShootFreq);
         }
     }
 
-    public void CreateProjectile() { }
+    public GameObject ClosestTarget()
+    {
+        return gunBehavior.closestTarget;
+    }
 }

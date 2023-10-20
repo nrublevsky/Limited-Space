@@ -56,7 +56,7 @@ public class GunBehavior : MonoBehaviour
         //If there is Less then 1 target - do nothing
         if (targetsInReach.Count < 1)
         {
-            //leaving empty for now
+            closestTarget = null;
         }
 
         //If there is only 1 target
