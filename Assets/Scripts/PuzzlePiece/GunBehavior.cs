@@ -42,10 +42,14 @@ public class GunBehavior : MonoBehaviour
     {
         SelectClosestEnemy();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (closestTarget != null)
         {
             ShootPresentTarget();
+        }
 
+        if (currentWeapon == null)
+        {
+            
         }
     }
 

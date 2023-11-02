@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
+
+    public ApproachTarget approach;
+
+    public Rigidbody2D rb;
+
+    public GameObject target;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +19,6 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        approach.MoveToTarget();
     }
 }
