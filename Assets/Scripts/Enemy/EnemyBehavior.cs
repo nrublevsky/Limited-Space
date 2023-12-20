@@ -10,6 +10,8 @@ public class EnemyBehavior : MonoBehaviour
     public Rigidbody2D rb;
 
     public GameObject target;
+    public float movSpeed;
+
     // Start is called before the first frame update
     void Start()
     {

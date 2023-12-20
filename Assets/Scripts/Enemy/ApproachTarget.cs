@@ -11,7 +11,7 @@ public class ApproachTarget : MonoBehaviour
 
     public void MoveToTarget()
     {
-        myBehavior.rb.velocity = myBehavior.target.transform.position - this.gameObject.transform.position;
+        myBehavior.rb.velocity = myBehavior.movSpeed * Time.deltaTime * (myBehavior.target.transform.position - this.gameObject.transform.position);
 
     }
 }

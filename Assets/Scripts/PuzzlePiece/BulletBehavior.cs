@@ -7,7 +7,7 @@ public class BulletBehavior : MonoBehaviour
     public Weapon myWeapon;
     public Rigidbody2D myRigidbody;
     public GunBehavior mygunBehavior;
-    
+
 
     void Start()
     {
@@ -23,8 +23,18 @@ public class BulletBehavior : MonoBehaviour
         /*myRigidbody.velocity = myTarget.transform.position - transform.position;*/
     }
 
-    public GameObject MyTarget() {
+    public GameObject MyTarget()
+    {
 
         return mygunBehavior.closestTarget;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }
